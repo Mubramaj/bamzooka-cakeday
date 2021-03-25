@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build"
+    "build": "ng build",
+    "build-connectors": "ng build bamzooka-cakeday-connectors --prod --output-hashing none --single-bundle true"
   },
   "private": true,
   "connectors": [

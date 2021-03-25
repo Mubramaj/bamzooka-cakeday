@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "bamzooka-cakeday": {
+    "bamzooka-cakeday-connectors": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -44,7 +44,7 @@
         "build": {
           "builder": "ngx-build-plus:browser",
           "options": {
-            "outputPath": "dist/bamzooka-cakeday",
+            "outputPath": "dist/bamzooka-cakeday-connectors",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -101,18 +101,18 @@
         "serve": {
           "builder": "ngx-build-plus:dev-server",
           "options": {
-            "browserTarget": "bamzooka-cakeday:build"
+            "browserTarget": "bamzooka-cakeday-connectors:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "bamzooka-cakeday:build:production"
+              "browserTarget": "bamzooka-cakeday-connectors:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "bamzooka-cakeday:build"
+            "browserTarget": "bamzooka-cakeday-connectors:build"
           }
         }
       }
@@ -232,5 +232,5 @@
       }
     }
   },
-  "defaultProject": "bamzooka-cakeday"
+  "defaultProject": "bamzooka-cakeday-connectors"
 }
