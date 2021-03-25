@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "bamzooka-cakeday-connectors": {
+    "connectors": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -44,7 +44,7 @@
         "build": {
           "builder": "ngx-build-plus:browser",
           "options": {
-            "outputPath": "dist/bamzooka-cakeday-connectors",
+            "outputPath": "dist/connectors",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -56,16 +56,6 @@
             ],
             "styles": [
               "src/styles.scss"
-            ],
-            "scripts": [
-              {
-                "bundleName": "polyfill-webcomp-es5",
-                "input": "node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js"
-              },
-              {
-                "bundleName": "polyfill-webcomp",
-                "input": "node_modules/@webcomponents/webcomponentsjs/bundles/webcomponents-sd-ce-pf.js"
-              }
             ]
           },
           "configurations": {
@@ -101,23 +91,23 @@
         "serve": {
           "builder": "ngx-build-plus:dev-server",
           "options": {
-            "browserTarget": "bamzooka-cakeday-connectors:build"
+            "browserTarget": "connectors:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "bamzooka-cakeday-connectors:build:production"
+              "browserTarget": "connectors:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "bamzooka-cakeday-connectors:build"
+            "browserTarget": "connectors:build"
           }
         }
       }
     },
-    "bamzooka-cakeday-workspace-view": {
+    "workspace-view": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -151,43 +141,33 @@
           "strict": true
         }
       },
-      "root": "projects/bamzooka-cakeday-workspace-view",
-      "sourceRoot": "projects/bamzooka-cakeday-workspace-view/src",
+      "root": "projects/workspace-view",
+      "sourceRoot": "projects/workspace-view/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "ngx-build-plus:browser",
           "options": {
-            "outputPath": "dist/bamzooka-cakeday-workspace-view",
-            "index": "projects/bamzooka-cakeday-workspace-view/src/index.html",
-            "main": "projects/bamzooka-cakeday-workspace-view/src/main.ts",
-            "polyfills": "projects/bamzooka-cakeday-workspace-view/src/polyfills.ts",
-            "tsConfig": "projects/bamzooka-cakeday-workspace-view/tsconfig.app.json",
+            "outputPath": "dist/workspace-view",
+            "index": "projects/workspace-view/src/index.html",
+            "main": "projects/workspace-view/src/main.ts",
+            "polyfills": "projects/workspace-view/src/polyfills.ts",
+            "tsConfig": "projects/workspace-view/tsconfig.app.json",
             "aot": true,
             "assets": [
-              "projects/bamzooka-cakeday-workspace-view/src/favicon.ico",
-              "projects/bamzooka-cakeday-workspace-view/src/assets"
+              "projects/workspace-view/src/favicon.ico",
+              "projects/workspace-view/src/assets"
             ],
             "styles": [
-              "projects/bamzooka-cakeday-workspace-view/src/styles.scss"
-            ],
-            "scripts": [
-              {
-                "bundleName": "polyfill-webcomp-es5",
-                "input": "node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js"
-              },
-              {
-                "bundleName": "polyfill-webcomp",
-                "input": "node_modules/@webcomponents/webcomponentsjs/bundles/webcomponents-sd-ce-pf.js"
-              }
+              "projects/workspace-view/src/styles.scss"
             ]
           },
           "configurations": {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "projects/bamzooka-cakeday-workspace-view/src/environments/environment.ts",
-                  "with": "projects/bamzooka-cakeday-workspace-view/src/environments/environment.prod.ts"
+                  "replace": "projects/workspace-view/src/environments/environment.ts",
+                  "with": "projects/workspace-view/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -215,22 +195,22 @@
         "serve": {
           "builder": "ngx-build-plus:dev-server",
           "options": {
-            "browserTarget": "bamzooka-cakeday-workspace-view:build"
+            "browserTarget": "workspace-view:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "bamzooka-cakeday-workspace-view:build:production"
+              "browserTarget": "workspace-view:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "bamzooka-cakeday-workspace-view:build"
+            "browserTarget": "workspace-view:build"
           }
         }
       }
     }
   },
-  "defaultProject": "bamzooka-cakeday-connectors"
+  "defaultProject": "connectors"
 }

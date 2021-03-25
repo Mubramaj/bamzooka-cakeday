@@ -3,9 +3,14 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng build workspace-view --watch --output-hashing none --single-bundle true",
     "build": "ng build",
-    "build-connectors": "ng build bamzooka-cakeday-connectors --prod --output-hashing none --single-bundle true"
+    "build-connectors": "ng build connectors --prod --output-hashing none --single-bundle true",
+    "build-workspace-view": "ng build workspace-view --prod --output-hashing none --single-bundle true",
+    "postinstall:bak": "",
+    "postinstall": "ngcc",
+    "build:externals": "ng build --extra-webpack-config /webpack.externals.js --prod --single-bundle",
+    "build:bamzooka-cakeday-connectors:externals": "ng build --extra-webpack-config webpack.externals.js --prod --project bamzooka-cakeday-connectors --single-bundle"
   },
   "private": true,
   "connectors": [
@@ -16,6 +21,12 @@
     {
       "name": "checklist-details-title",
       "customElementName": "bamzooka-cakeday-connector-checklist-details-title"
+    }
+  ],
+  "views": [
+    {
+      "name": "workspace",
+      "customElementName": "bamzooka-cakeday-view-workspace"
     }
   ],
   "dependencies": {

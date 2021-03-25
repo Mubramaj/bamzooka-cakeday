@@ -2,9 +2,10 @@ import { Injector, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { createCustomElement } from '@angular/elements';
 import { BirthdayBaseComponent } from './birthday-base.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  imports: [BrowserModule],
+  imports: [BrowserModule, HttpClientModule],
   entryComponents: [BirthdayBaseComponent],
   declarations: [BirthdayBaseComponent]
 })
