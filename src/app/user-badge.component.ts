@@ -8,7 +8,7 @@ interface User {
 
 @Component({
   // tslint:disable-next-line:component-selector
-  selector: 'bam-plugin-connector-user-badge',
+  selector: 'connector-user-badge',
   template: `
     <span class='text-warning font-weight-bolder'
     >HB</span>`,
