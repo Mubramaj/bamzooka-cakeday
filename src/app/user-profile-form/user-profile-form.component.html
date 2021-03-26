@@ -1,0 +1,28 @@
+<label>Birthday</label>
+<form novalidate *ngIf='form' [formGroup]='form' (ngSubmit)='onUpdateBirthday()'
+      class='form-inline w-100'>
+  <label class='sr-only' for='month'>Month</label>
+  <select class='form-control mr-2' id='month' formControlName='month'>
+    <option value='0'>January</option>
+    <option value='1'>February</option>
+    <option value='2'>March</option>
+    <option value='3'>April</option>
+    <option value='4'>May</option>
+    <option value='5'>June</option>
+    <option value='6'>July</option>
+    <option value='7'>August</option>
+    <option value='8'>September</option>
+    <option value='9'>October</option>
+    <option value='10'>November</option>
+    <option value='11'>December</option>
+  </select>
+
+  <label class='sr-only' for='day'>Day</label>
+  <select class='form-control mr-2' id='day' formControlName='day'>
+    <option *ngFor='let day of days' [value]='day'>{{day}}</option>
+  </select>
+  <button type='submit' class='btn btn-success mr-2'
+          [disabled]='form.pristine || isUpdatingUser || form.invalid '>submit
+  </button>
+  <button type='button' class='btn btn-default' [disabled]='form.pristine' (click)='onResetForm()'>x</button>
+</form>

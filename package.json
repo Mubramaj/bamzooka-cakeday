@@ -3,14 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng build workspace-view --watch --output-hashing none --single-bundle true",
-    "build": "ng build",
+    "start": "yarn start-connectors & yarn start-workspace-view",
+    "start-connectors": "ng build connectors --watch --output-hashing none --single-bundle true",
+    "start-workspace-view": "ng build workspace-view --watch --output-hashing none --single-bundle true",
     "build-connectors": "ng build connectors --prod --output-hashing none --single-bundle true",
-    "build-workspace-view": "ng build workspace-view --prod --output-hashing none --single-bundle true",
-    "postinstall:bak": "",
-    "postinstall": "ngcc",
-    "build:externals": "ng build --extra-webpack-config /webpack.externals.js --prod --single-bundle",
-    "build:bamzooka-cakeday-connectors:externals": "ng build --extra-webpack-config webpack.externals.js --prod --project bamzooka-cakeday-connectors --single-bundle"
+    "build-workspace-view": "ng build workspace-view --prod --output-hashing none --single-bundle true"
   },
   "private": true,
   "connectors": [
@@ -21,6 +18,10 @@
     {
       "name": "checklist-details-title",
       "customElementName": "bamzooka-cakeday-connector-checklist-details-title"
+    },
+    {
+      "name": "user-profile-form",
+      "customElementName": "bamzooka-cakeday-connector-user-profile-form"
     }
   ],
   "views": [
@@ -51,6 +52,7 @@
     "@angular/cli": "~11.2.5",
     "@angular/compiler-cli": "~11.2.6",
     "@types/node": "^12.11.1",
+    "concurrently": "^6.0.0",
     "typescript": "~4.1.5"
   }
 }

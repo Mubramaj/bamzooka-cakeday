@@ -1,1 +1,40 @@
-WORKING
+<div class='form-group'>
+  <label for='month'>Select a month:</label>
+  <select class='form-control' id='month' [(ngModel)]='selectedMonth' (ngModelChange)='onChange()'>
+    <option value='0'>January</option>
+    <option value='1'>February</option>
+    <option value='2'>March</option>
+    <option value='3'>April</option>
+    <option value='4'>May</option>
+    <option value='5'>June</option>
+    <option value='6'>July</option>
+    <option value='7'>August</option>
+    <option value='8'>September</option>
+    <option value='9'>October</option>
+    <option value='10'>November</option>
+    <option value='11'>December</option>
+  </select>
+</div>
+
+
+<table class='table table-striped'>
+  <thead>
+  <tr>
+    <th scope='col'>username</th>
+    <th scope='col'>email</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan='2' *ngIf='!isFetchingBirthdays && users?.length === 0' class='text-muted'>
+      No birthdays for the selected date
+    </td>
+  </tr>
+  <ng-container *ngIf='users!.length > 0'>
+    <tr *ngFor='let user of users'>
+      <td>{{user.username}}</td>
+      <td>{{user.email}}</td>
+    </tr>
+  </ng-container>
+  </tbody>
+</table>
