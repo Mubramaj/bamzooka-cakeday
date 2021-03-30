@@ -1,5 +1,5 @@
-import {Component,  Input } from '@angular/core';
-
+import { Component, Input, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 interface User {
   email: string;
@@ -21,7 +21,15 @@ interface User {
     }
   `],
 })
-export class UserBadgeComponent {
+export class UserBadgeComponent implements OnInit{
   @Input() data!: User;
+  @Input() locale!: string;
+
+  constructor(private translate: TranslateService) {
+  }
+
+  ngOnInit() {
+    this.translate.use(this.locale);
+  }
 
 }

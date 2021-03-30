@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { TranslateService } from '@ngx-translate/core';
 
 interface User {
   anniversary_date: Date;
@@ -12,17 +13,20 @@ interface User {
 })
 export class UserProfileFormComponent implements OnInit {
   @Input() data!: User;
+  @Input() locale!: string;
   form: FormGroup | null = null;
   days = Array.from(Array(31).keys()).map((x) => (x + 1).toString());
   isUpdatingUser = false;
   backupMonth?: number;
   backupDay?: number;
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  constructor(private fb: FormBuilder, private http: HttpClient,
+              private translate: TranslateService) {
   }
 
   ngOnInit(): void {
     this.createForm();
+    this.translate.use(this.locale);
   }
 
   onUpdateBirthday(): void {
@@ -31,7 +35,7 @@ export class UserProfileFormComponent implements OnInit {
     const day = formValue.day;
     const birthDate = new Date(`1904-${month}-${day}`);
     this.isUpdatingUser = true;
-    this.http.patch(this.getMeUrl(), {anniversary_date: birthDate}).subscribe(() => {
+    this.http.patch(this.getMeUrl(), { anniversary_date: birthDate }).subscribe(() => {
       this.isUpdatingUser = false;
       this.doBackup();
       this.form?.markAsPristine();
@@ -49,8 +53,8 @@ export class UserProfileFormComponent implements OnInit {
   private createForm(): void {
     const date = new Date(this.data.anniversary_date);
     this.form = this.fb.group({
-      month: [ this.data.anniversary_date ? new Date(this.data.anniversary_date).getMonth() : null],
-      day: [ this.data.anniversary_date ? new Date(this.data.anniversary_date).getDate() : null]
+      month: [this.data.anniversary_date ? new Date(this.data.anniversary_date).getMonth() : null],
+      day: [this.data.anniversary_date ? new Date(this.data.anniversary_date).getDate() : null]
     });
     this.doBackup();
   }
@@ -63,7 +67,6 @@ export class UserProfileFormComponent implements OnInit {
   private getMeUrl(): string {
     return `/api/v1/me`;
   }
-
 
 
 }
