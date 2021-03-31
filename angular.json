@@ -37,33 +37,33 @@
           "strict": true
         }
       },
-      "root": "",
-      "sourceRoot": "src",
+      "root": "projects/connectors",
+      "sourceRoot": "projects/connectors/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "ngx-build-plus:browser",
           "options": {
             "outputPath": "dist/connectors",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.app.json",
+            "index": "projects/connectors/src/index.html",
+            "main": "projects/connectors/src/main.ts",
+            "polyfills": "projects/connectors/src/polyfills.ts",
+            "tsConfig": "projects/connectors/tsconfig.app.json",
             "aot": true,
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "projects/connectors/src/favicon.ico",
+              "projects/connectors/src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "projects/connectors/src/styles.scss"
             ]
           },
           "configurations": {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "projects/connectors/src/environments/environment.ts",
+                  "with": "projects/connectors/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
