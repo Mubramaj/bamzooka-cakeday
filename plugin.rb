@@ -5,7 +5,6 @@ after_initialize do
     end
   end
 
-
   ::BamzookaCakeday::Engine.routes.draw do
     get 'birthdays', to: 'birthdays#index'
   end

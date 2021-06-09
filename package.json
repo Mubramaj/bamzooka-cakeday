@@ -30,6 +30,38 @@
       "customElementName": "bamzooka-cakeday-view-workspace"
     }
   ],
+  "settings": [
+    {
+      "name": "is_enabled",
+      "value": true,
+      "type": "GizmoCheckboxInput",
+      "position": 1
+    },
+    {
+      "name": "birthday_text",
+      "value": "hb",
+      "type": "GizmoDropdownInput",
+      "position": 2,
+      "gizmos": [
+        {
+          "key": "hb",
+          "type": "GizmoDropdownOption",
+          "value": "HB"
+        },
+        {
+          "key": "youpi",
+          "type": "GizmoDropdownOption",
+          "value": "youpi"
+        }
+      ]
+    },
+    {
+      "name": "display_text",
+      "value": "Have an amazing birthday",
+      "type": "GizmoShortTextInput",
+      "position": 3
+    }
+  ],
   "dependencies": {
     "@angular/animations": "~11.2.6",
     "@angular/common": "~11.2.6",

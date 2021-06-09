@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 interface User {
   username: string;
@@ -10,6 +10,7 @@ interface User {
   templateUrl: './birthday-base.component.html'
 })
 export class BirthdayBaseComponent {
+  @Input() workspace?: any;
   users: User[] = [];
   isFetchingBirthdays = false;
   selectedMonth = 1;
@@ -23,6 +24,11 @@ export class BirthdayBaseComponent {
   onChange(): void {
     this.getBirthdaysForMonth(this.selectedMonth);
   }
+
+  getSettingValue(): string {
+    return this.workspace?.getConfig('bamzooka-cakeday')?.get('display_text')?.value;
+  }
+
   private getBirthdaysForMonth(month_param: number): void {
     const url = `/bamzooka-cakeday/birthdays`;
 
