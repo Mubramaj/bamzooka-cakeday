@@ -10,7 +10,13 @@ interface User {
     // tslint:disable-next-line:component-selector
     selector: 'connector-user-badge',
     template: `
+        <ng-template #notYourBirthday>
+            <span class="text-danger">
+             NYB   
+            </span>
+        </ng-template>
         <span class='text-warning font-weight-bolder'
+              *ngIf="shouldDisplayBirthdayMessage() else notYourBirthday"
         >{{getDisplayText()}}</span>`,
     styles: [`
         span {
@@ -31,6 +37,15 @@ export class UserBadgeComponent implements OnInit {
 
     ngOnInit() {
         this.translate.use(this.locale);
+    }
+
+    shouldDisplayBirthdayMessage(): boolean {
+        if(!this?.data?.anniversary_date) {
+            return false;
+        }
+        const now = new Date(Date.now());
+        return this.data.anniversary_date.getDate() === now.getDate()
+            && this.data.anniversary_date.getDay() === now.getDay();
     }
 
     getDisplayText(): string {

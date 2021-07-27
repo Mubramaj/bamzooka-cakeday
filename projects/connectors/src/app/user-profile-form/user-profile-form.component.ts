@@ -13,7 +13,6 @@ interface User {
 })
 export class UserProfileFormComponent implements OnInit {
   @Input() data!: User;
-  @Input() locale!: string;
   form: FormGroup | null = null;
   days = Array.from(Array(31).keys()).map((x) => (x + 1).toString());
   isUpdatingUser = false;
@@ -26,7 +25,7 @@ export class UserProfileFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm();
-    this.translate.use(this.locale);
+    // this.translate.use(this.locale);
   }
 
   onUpdateBirthday(): void {
