@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { TranslateService } from '@ngx-translate/core';
 
 interface User {
   anniversary_date: Date;
@@ -19,8 +18,7 @@ export class UserProfileFormComponent implements OnInit {
   backupMonth?: number;
   backupDay?: number;
 
-  constructor(private fb: FormBuilder, private http: HttpClient,
-              private translate: TranslateService) {
+  constructor(private fb: FormBuilder, private http: HttpClient) {
   }
 
   ngOnInit(): void {

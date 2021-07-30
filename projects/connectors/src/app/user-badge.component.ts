@@ -1,5 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {TranslateService} from '@ngx-translate/core';
+import {Component, Input} from '@angular/core';
 
 interface User {
     email: string;
@@ -11,7 +10,7 @@ interface User {
     selector: 'connector-user-badge',
     template: `
         <ng-template #notYourBirthday>
-            <span class="text-danger">
+            <span class="text-danger" i18n="@@nyb">
              NYB   
             </span>
         </ng-template>
@@ -27,16 +26,11 @@ interface User {
         }
     `],
 })
-export class UserBadgeComponent implements OnInit {
+export class UserBadgeComponent {
     @Input() data!: User;
-    @Input() locale!: string;
     @Input() workspace!: any;
 
-    constructor(private translate: TranslateService) {
-    }
-
-    ngOnInit() {
-        this.translate.use(this.locale);
+    constructor() {
     }
 
     shouldDisplayBirthdayMessage(): boolean {

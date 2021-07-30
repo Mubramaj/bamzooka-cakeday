@@ -10,7 +10,6 @@ import {ChecklistDetailsTitleComponent} from './checklist-details-title.componen
 import {UserProfileFormComponent} from "./user-profile-form/user-profile-form.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
-import {TranslateModule, TranslateService} from "@ngx-translate/core";
 
 const CONNECTORS = [
     UserBadgeComponent,
@@ -25,8 +24,7 @@ const CONNECTORS = [
     imports: [
         BrowserModule,
         ReactiveFormsModule,
-        HttpClientModule,
-        TranslateModule.forRoot()
+        HttpClientModule
     ],
     entryComponents: [
         ...CONNECTORS
@@ -35,7 +33,6 @@ const CONNECTORS = [
 export class BamzookaCakedayConnectors {
     constructor(
         injector: Injector,
-        translate: TranslateService,
         @Inject(LOCALE_ID) private local: string) {
         const elements: any[] = [
             [UserBadgeComponent, 'bamzooka-cakeday-connector-user-badge'],
@@ -46,11 +43,6 @@ export class BamzookaCakedayConnectors {
             const el = createCustomElement(component, {injector: injector});
             customElements.define(name, el);
         }
-        // this language will be used as a fallback when a translation isn't found in the current language
-        translate.setDefaultLang('en');
-        translate.setTranslation('fr', {
-            January: 'Janvier'
-        })
     }
 
     ngDoBootstrap() {
