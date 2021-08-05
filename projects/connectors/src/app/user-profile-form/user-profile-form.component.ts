@@ -23,7 +23,6 @@ export class UserProfileFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm();
-    // this.translate.use(this.locale);
   }
 
   onUpdateBirthday(): void {

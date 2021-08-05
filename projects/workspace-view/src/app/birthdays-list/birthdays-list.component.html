@@ -1,7 +1,7 @@
 <div class='form-group'>
     <label for='month'>Select a month:</label>
     <select class='form-control' id='month' [(ngModel)]='selectedMonth' (ngModelChange)='onChange()'>
-        <option value='0'>January</option>
+        <option value='0' i18n="@@january">January</option>
         <option value='1'>February</option>
         <option value='2'>March</option>
         <option value='3'>April</option>
@@ -20,7 +20,7 @@
 <table class='table table-striped'>
     <thead>
     <tr>
-        <th scope='col'>username</th>
+        <th scope='col' i18n="@@username">username</th>
         <th scope='col'>email</th>
     </tr>
     </thead>

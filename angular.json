@@ -40,6 +40,12 @@
       "root": "projects/connectors",
       "sourceRoot": "projects/connectors/src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "en",
+        "locales": {
+          "fr": "public/locales/connectors.fr.json"
+        }
+      },
       "architect": {
         "build": {
           "builder": "ngx-build-plus:browser",
@@ -139,6 +145,12 @@
         },
         "@schematics/angular:application": {
           "strict": true
+        }
+      },
+      "i18n": {
+        "sourceLocale": "en",
+        "locales": {
+          "fr": "public/locales/workspace-view.fr.json"
         }
       },
       "root": "projects/workspace-view",

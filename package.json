@@ -4,10 +4,14 @@
   "scripts": {
     "ng": "ng",
     "start": "yarn start-connectors & yarn start-workspace-view",
+    "build": "yarn build-connectors && yarn build-workspace-view",
+    "extract-i18n": "yarn extract-i18n-connectors && yarn extract-i18n-workspace-view",
+    "extract-i18n-connectors": "ng extract-i18n --project=connectors --output-path=public/locales --format=json --out-file connectors.json",
+    "extract-i18n-workspace-view": "ng extract-i18n --project=workspace-view --output-path=public/locales --format=json --out-file workspace-view.json",
     "start-connectors": "ng build connectors --watch --output-hashing none --single-bundle true",
     "start-workspace-view": "ng build workspace-view --watch --output-hashing none --single-bundle true",
-    "build-connectors": "ng build connectors --prod --output-hashing none --single-bundle true",
-    "build-workspace-view": "ng build workspace-view --prod --output-hashing none --single-bundle true"
+    "build-connectors": "ng build connectors --prod --localize --output-hashing none --single-bundle true",
+    "build-workspace-view": "ng build workspace-view --prod --localize --output-hashing none --single-bundle true"
   },
   "private": true,
   "connectors": [
