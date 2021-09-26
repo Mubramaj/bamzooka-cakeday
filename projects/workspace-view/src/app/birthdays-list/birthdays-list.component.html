@@ -2,17 +2,17 @@
     <label for='month'>Select a month:</label>
     <select class='form-control' id='month' [(ngModel)]='selectedMonth' (ngModelChange)='onChange()'>
         <option value='0' i18n="@@january">January</option>
-        <option value='1'>February</option>
-        <option value='2'>March</option>
-        <option value='3'>April</option>
-        <option value='4'>May</option>
-        <option value='5'>June</option>
-        <option value='6'>July</option>
-        <option value='7'>August</option>
-        <option value='8'>September</option>
-        <option value='9'>October</option>
-        <option value='10'>November</option>
-        <option value='11'>December</option>
+        <option value='1' i18n="@@february">February</option>
+        <option value='2' i18n="@@march">March</option>
+        <option value='3' i18n="@@april">April</option>
+        <option value='4' i18n="@@may">May</option>
+        <option value='5' i18n="@@june">June</option>
+        <option value='6' i18n="@@july">July</option>
+        <option value='7' i18n="@@august">August</option>
+        <option value='8' i18n="@@september">September</option>
+        <option value='9' i18n="@@october">October</option>
+        <option value='10' i18n="@@november">November</option>
+        <option value='11' i18n="@@december">December</option>
     </select>
 </div>
 
@@ -26,7 +26,8 @@
     </thead>
     <tbody>
     <tr>
-        <td colspan='2' *ngIf='!isFetchingBirthdays && users?.length === 0' class='text-muted'>
+        <td colspan='2' *ngIf='!isFetchingBirthdays && users?.length === 0' class='text-muted'
+        i18n="@@noBirthdaysForTheSelectedDate">
             No birthdays for the selected date
         </td>
     </tr>
@@ -38,5 +39,3 @@
     </ng-container>
     </tbody>
 </table>
-
-My setting is {{getSettingValue() | async}}
