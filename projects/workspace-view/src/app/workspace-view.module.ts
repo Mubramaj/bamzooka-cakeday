@@ -8,7 +8,7 @@ import { BirthdaysListComponent } from './birthdays-list/birthdays-list.componen
 import { TodayComponent } from './today/today.component';
 import {Router, RouterModule} from "@angular/router";
 import {LocationStrategy} from "@angular/common";
-import {NoopLocationStrategy, RoutedEntryComponent} from "@metadot/bamzooka-plugin-sdk";
+import {NoopLocationStrategy, RoutedEntryComponent} from "@bamzooka/bamzooka-plugin-sdk";
 
 @Component({
   selector: 'entry-component',

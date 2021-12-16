@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {BamzookaDataStateService} from '@metadot/bamzooka-plugin-sdk'
+import {BamzookaDataStateService} from '@bamzooka/bamzooka-plugin-sdk'
 import {map} from "rxjs/operators";
 
 interface User {
